@@ -220,7 +220,7 @@
             //console.log("Delivery", delivery)
             arrayMessage.DELIVERIES.push({
                 ...delivery,
-                IDCODE: `${delivery.idRemission}-${delivery.orderId}`,
+                IDCODE: `${delivery.idRemission}-${delivery.sapDelivery}`,
                 ACTION: "UPSERT",
             })
             countDe++;
@@ -229,7 +229,7 @@
                 //console.log("Package", product)
                 arrayMessage.PACKAGES.push({
                     ...product,
-                    IDCODE: `${delivery.sapDelivery}-${product.materialId}-${position.toString().padStart(6,"0")}`,
+                    IDCODE: `${delivery.idRemission}-${delivery.sapDelivery}-${product.materialId}-${product.vendorBatch}`,
                     deliveryId: delivery.sapDelivery,
                     position: position.toString().padStart(6,"0"),
                     ACTION: "UPSERT"
