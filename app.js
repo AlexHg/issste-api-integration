@@ -221,6 +221,7 @@
             arrayMessage.DELIVERIES.push({
                 ...delivery,
                 IDCODE: `${delivery.idRemission}-${delivery.sapDelivery}`,
+
                 ACTION: "UPSERT",
             })
             countDe++;
@@ -231,6 +232,7 @@
                     ...product,
                     IDCODE: `${delivery.idRemission}-${delivery.sapDelivery}-${product.materialId}-${product.vendorBatch}`,
                     deliveryId: delivery.sapDelivery,
+                    idRemission: delivery.idRemission,
                     position: position.toString().padStart(6,"0"),
                     ACTION: "UPSERT"
                 })
